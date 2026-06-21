@@ -1,0 +1,99 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Maya Mobile
+providerId: maya-mobile
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- eSIM
+- Connectivity
+- Mobile Data
+- Roaming
+- Telecom
+- FinOps
+- Cost Management
+- FOCUS
+description: >-
+  FinOps view of Maya Mobile Connect+ connectivity spend. Maya Mobile bills
+  resellers on a usage-based wholesale model - partners pay for the data their
+  eSIMs consume - with pre-made and custom data packages assigned per eSIM.
+  Exact wholesale per-MB rates are negotiated per partner and not public, so cost
+  meters here are structural and this artifact is not reconciled.
+notes: >-
+  Confirm billing frequency, currency, and per-MB / per-package wholesale rates
+  with Maya Mobile during reconciliation. Consumer retail eSIM pricing on
+  maya.net is separate from the Connect+ wholesale billing modeled here.
+sources:
+- https://maya.net/business/esim-api
+- https://api.maya.net/business/esim-reseller
+- https://focus.finops.org/focus-specification/v1-3/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Maya Mobile
+serviceCategory: Networking and Connectivity
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+  - Usage
+  - Purchase
+  - Adjustment
+focusColumns:
+  ServiceName: Connect+ Connectivity
+  ServiceCategory: Networking and Connectivity
+  ProviderName: Maya Mobile
+  PublisherName: Maya Mobile
+  InvoiceIssuerName: Mobile Maya Inc
+  BillingCurrency: USD
+  ChargeCategory: Usage
+  PricingCategory: Usage-Based
+meters:
+- name: data_consumed
+  description: Megabytes of mobile data consumed by provisioned eSIMs, billed at the negotiated wholesale rate per destination.
+  unit: megabytes
+  aggregation: sum
+  dimensions:
+  - account
+  - esim
+  - country
+- name: data_packages
+  description: Data packages (pre-made or custom) ordered and assigned to eSIMs.
+  unit: packages
+  aggregation: sum
+  dimensions:
+  - account
+  - plan
+  - esim
+- name: topups
+  description: Additional data packages added to existing eSIMs as top-ups.
+  unit: packages
+  aggregation: sum
+  dimensions:
+  - account
+  - esim
+- name: active_esims
+  description: Count of provisioned/active eSIMs over the billing period.
+  unit: esims
+  aggregation: sum
+  dimensions:
+  - account
+  - country
+principles:
+- name: Visibility
+  description: Use real-time usage reporting (API and webhooks) to track per-eSIM data burn against retail packages.
+- name: Allocation
+  description: Tag eSIMs and orders to partner workloads/customers; map wholesale data cost to retail margin.
+- name: Optimization
+  description: Match data-package policies (fixed-limit, time-limited, throttled) to actual demand; suspend idle eSIMs to avoid unnecessary connectivity exposure.
+- name: Accountability
+  description: Review monthly wholesale data consumption against retail revenue and renegotiate volume tiers as scale grows.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

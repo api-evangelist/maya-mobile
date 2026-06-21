@@ -1,0 +1,73 @@
+aid: maya-mobile
+name: Maya Mobile
+review:
+  question: Does Maya Mobile expose a documented public WebSocket API?
+  answer: false
+  date: '2026-06-21'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    Maya Mobile's Connect+ Connectivity platform is described publicly as a
+    "REST API & Webhooks" surface. Asynchronous delivery is via HTTP webhook
+    callbacks (and SMS notifications) to partner-supplied URLs, not via a
+    streaming WebSocket or Server-Sent Events transport. No AsyncAPI document
+    was authored because the only async surface is request/response webhook
+    callbacks, and no public schema for those events is available (the full
+    reference is distributed under NDA).
+findings:
+  summary: |
+    Maya Mobile (Mobile Maya Inc) operates a real REST Connectivity API
+    ("Connect+") for eSIM provisioning, data-package/plan management, eSIM
+    status and data-usage reporting, top-ups, suspend/reactivate, and
+    webhook callbacks for lifecycle and usage events. The public marketing
+    and reseller pages confirm a RESTful, bearer-authenticated, webhook-driven
+    API, but the complete API reference (exact endpoint paths, schemas, and
+    auth parameters) is distributed to partners under NDA after onboarding and
+    is not publicly published. No documented public WebSocket (ws:// or wss://)
+    endpoint exists; asynchronous notifications are delivered as HTTP webhook
+    callbacks and optional SMS, not over WebSocket.
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://api.maya.net/connectivity/v1
+      documented: true
+      note: Base host/version path is representative; exact values confirmed under partner documentation.
+    - protocol: Webhook
+      scheme: https
+      documented: true
+      note: Lifecycle and data-usage events pushed to partner callback URLs (HTTP POST), plus optional SMS notifications.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint is documented on any public Maya Mobile page as of the review date.
+  publicReferenceStatus: NDA-gated
+  capabilitiesConfirmedPublic:
+    - eSIM provisioning with activation code + QR retrieval
+    - Pre-made and custom data packages (fixed-limit, time-limited, unlimited, throttled)
+    - Suspend and reactivate eSIMs
+    - Real-time eSIM status and data-usage reporting
+    - Top-ups / recharges
+    - Webhook callbacks for lifecycle and usage events
+    - SMS notifications for lifecycle events
+sources:
+  - url: https://maya.net/business/esim-api
+    type: Documentation
+    note: Describes RESTful API endpoints and webhooks for eSIMs, data packages, status, and usage.
+  - url: https://legacy.maya.net/business/esim-api
+    type: Documentation
+    note: Connect+ API capabilities; states full Connectivity API documentation is provided after an NDA is signed.
+  - url: https://api.maya.net/business/esim-reseller
+    type: Documentation
+    note: Reseller/white-label program; REST API with webhooks, QR retrieval, top-ups, wholesale "pay for data used" model.
+  - url: https://www.linkedin.com/company/mayamobile-us
+    type: LinkedIn
+    note: Maya Mobile company profile (US-based connectivity platform).
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No WebSocket protocol surface exists and no public schema is available for
+    the webhook callbacks (the full reference is NDA-gated). The apis.yml models
+    the documented REST capability surface (Plans/Products, eSIMs/Provisioning,
+    Usage/Topup, Orders, Webhooks) with OpenAPI and Postman/Open Collection
+    artifacts, with unreconciled artifacts marked reconciled: false.

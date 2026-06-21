@@ -1,0 +1,105 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Maya Mobile
+providerId: maya-mobile
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- eSIM
+- Connectivity
+- Mobile Data
+- Roaming
+- Telecom
+- Plans
+description: >-
+  Maya Mobile sells eSIM connectivity to resellers and partners on a wholesale,
+  usage-based model: partners pay only for the data their eSIMs actually consume
+  and set their own retail packages and pricing. Pre-made data plans can be resold
+  as-is, or custom data packages can be created (fixed-limit, time-limited,
+  unlimited, or throttled traffic policies) across 400+ roaming networks in 200+
+  destinations. Specific wholesale per-MB rates are negotiated per partner and
+  not publicly published, so this artifact is not reconciled.
+notes: >-
+  Wholesale and reseller rates are quoted after onboarding (often under NDA) and
+  vary by destination and volume; consumer retail eSIM plans on maya.net are
+  separate from the Connect+ wholesale pricing. Verify exact rates with Maya
+  Mobile during reconciliation.
+sources:
+- https://maya.net/business/esim-api
+- https://api.maya.net/business/esim-reseller
+- https://api.maya.net/business
+plans:
+- id: maya-mobile-wholesale
+  name: Connect+ Wholesale (Reseller)
+  type: usage
+  description: >-
+    Usage-based wholesale connectivity: pay only for data consumed by your eSIMs,
+    while you define your own retail data packages and pricing. Includes API
+    provisioning, custom package templates, and white-label options.
+  entries:
+  - label: Data Consumed
+    name: data_consumed
+    type: usage
+    metric: data
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: wholesale per-MB rate (negotiated; not public)
+    userMultiplied: false
+  - label: Pre-made Data Plans
+    name: premade_plans
+    type: usage
+    metric: packages
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: resell at your own pricing; wholesale cost per package not public
+    userMultiplied: false
+  - label: Custom Data Packages
+    name: custom_packages
+    type: usage
+    metric: packages
+    limit: -1
+    timeFrame: month
+    geo: global
+    unit: 1
+    price: based on data policy and destination; not public
+    userMultiplied: false
+  elements:
+  - name: eSIM Provisioning
+  - name: Data Packages
+  - name: Top-ups
+  - name: Suspend / Reactivate
+  - name: Usage Reporting
+  - name: Webhooks
+  - name: SMS Notifications
+- id: maya-mobile-white-label
+  name: White Label
+  type: enterprise
+  description: >-
+    Branded eSIM store and platform for partners launching their own eSIM service,
+    including website plugin/store integration, custom packages, and dashboard.
+    Pricing negotiated with Maya Mobile.
+  entries:
+  - label: White Label Agreement
+    name: white_label
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: global
+    unit: 1
+    price: contact Maya Mobile partnerships
+    userMultiplied: false
+  elements:
+  - name: Branded eSIM Store
+  - name: Website Plugin
+  - name: Custom Packages
+  - name: Connect+ Dashboard
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

@@ -1,0 +1,428 @@
+{
+  "item": [
+    {
+      "name": "Plans",
+      "description": {
+        "content": "Pre-made data plans and the catalog of countries, regions, and networks.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "List available data plans and products",
+          "request": {
+            "name": "List available data plans and products",
+            "description": {
+              "content": "Returns the catalog of pre-made data plans and the countries, regions, and roaming networks available for building eSIM data packages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connectivity",
+                "v1",
+                "plans"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "country",
+                  "value": "<string>",
+                  "disabled": true
+                },
+                {
+                  "key": "region",
+                  "value": "<string>",
+                  "disabled": true
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "eSIMs",
+      "description": {
+        "content": "eSIM provisioning, activation codes/QR, suspend and reactivate.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Provision a new eSIM",
+          "request": {
+            "name": "Provision a new eSIM",
+            "description": {
+              "content": "Requests an eSIM with the selected roaming profile and returns the activation code and QR code ready to install.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connectivity",
+                "v1",
+                "esims"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plan_id\": \"<string>\",\n  \"region\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get an eSIM",
+          "request": {
+            "name": "Get an eSIM",
+            "description": {
+              "content": "Returns the current state and installation status of a single eSIM.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connectivity",
+                "v1",
+                "esims",
+                ":esimId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "esimId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "name": "Suspend an eSIM",
+          "request": {
+            "name": "Suspend an eSIM",
+            "description": {
+              "content": "Suspends an active eSIM anywhere in the world.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connectivity",
+                "v1",
+                "esims",
+                ":esimId",
+                "suspend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "esimId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": []
+        },
+        {
+          "name": "Reactivate an eSIM",
+          "request": {
+            "name": "Reactivate an eSIM",
+            "description": {
+              "content": "Reactivates a previously suspended eSIM.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connectivity",
+                "v1",
+                "esims",
+                ":esimId",
+                "reactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "esimId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Usage",
+      "description": {
+        "content": "Real-time eSIM status and data-usage reporting.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Get eSIM data usage",
+          "request": {
+            "name": "Get eSIM data usage",
+            "description": {
+              "content": "Returns real-time data-usage and installation status for an eSIM.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connectivity",
+                "v1",
+                "esims",
+                ":esimId",
+                "usage"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "esimId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Orders",
+      "description": {
+        "content": "Placing and assigning data-package orders, including top-ups.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "name": "Top up an eSIM",
+          "request": {
+            "name": "Top up an eSIM",
+            "description": {
+              "content": "Adds (tops up) an additional data package to an existing eSIM for the specified country, region, or network.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connectivity",
+                "v1",
+                "esims",
+                ":esimId",
+                "topup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "key": "esimId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plan_id\": \"<string>\",\n  \"country\": \"<string>\",\n  \"region\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a data-package order",
+          "request": {
+            "name": "Create a data-package order",
+            "description": {
+              "content": "Places a data-package order and assigns it to an eSIM for specific countries, regions, and networks. Supports one or multiple packages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connectivity",
+                "v1",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"esim_id\": \"<string>\",\n  \"items\": [\n    {\n      \"plan_id\": \"<string>\",\n      \"quantity\": 1\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {
+              "content": "Lists previously placed data-package orders.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "connectivity",
+                "v1",
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maya.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "name": "Maya Mobile Connect+ Connectivity API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Maya Mobile (Mobile Maya Inc) Connect+ Connectivity REST API for provisioning eSIMs and data packages, monitoring status and usage, top-ups, orders, and webhooks. NOTE: the full Connectivity API reference is distributed to partners under NDA; this collection models the publicly described capability surface and exact paths/schemas are confirmed during onboarding.\n\nContact: Maya Mobile Partnerships\n https://maya.net/business",
+      "type": "text/plain"
+    }
+  }
+}

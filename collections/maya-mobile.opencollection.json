@@ -1,0 +1,158 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maya Mobile Connect+ Connectivity API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available data plans and products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maya.net/connectivity/v1/plans"
+          },
+          "docs": "Returns the catalog of pre-made data plans and the countries, regions, and roaming networks available for building eSIM data packages."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "eSIMs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Provision a new eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/esims",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"plan_id\": \"<string>\",\n  \"region\": \"<string>\",\n  \"country\": \"<string>\"\n}"
+            }
+          },
+          "docs": "Requests an eSIM with the selected roaming profile and returns the activation code and QR code ready to install."
+        },
+        {
+          "info": {
+            "name": "Get an eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maya.net/connectivity/v1/esims/:esimId"
+          },
+          "docs": "Returns the current state and installation status of a single eSIM."
+        },
+        {
+          "info": {
+            "name": "Suspend an eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/esims/:esimId/suspend"
+          },
+          "docs": "Suspends an active eSIM anywhere in the world."
+        },
+        {
+          "info": {
+            "name": "Reactivate an eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/esims/:esimId/reactivate"
+          },
+          "docs": "Reactivates a previously suspended eSIM."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Usage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get eSIM data usage",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maya.net/connectivity/v1/esims/:esimId/usage"
+          },
+          "docs": "Returns real-time data-usage and installation status for an eSIM."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Top up an eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/esims/:esimId/topup",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"plan_id\": \"<string>\",\n  \"country\": \"<string>\",\n  \"region\": \"<string>\"\n}"
+            }
+          },
+          "docs": "Adds (tops up) an additional data package to an existing eSIM for the specified country, region, or network."
+        },
+        {
+          "info": {
+            "name": "Create a data-package order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/orders",
+            "body": {
+              "type": "json",
+              "data": "{\n  \"esim_id\": \"<string>\",\n  \"items\": [\n    {\n      \"plan_id\": \"<string>\",\n      \"quantity\": 1\n    }\n  ]\n}"
+            }
+          },
+          "docs": "Places a data-package order and assigns it to an eSIM for specific countries, regions, and networks. Supports one or multiple packages."
+        },
+        {
+          "info": {
+            "name": "List orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maya.net/connectivity/v1/orders"
+          },
+          "docs": "Lists previously placed data-package orders."
+        }
+      ]
+    }
+  ]
+}

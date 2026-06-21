@@ -1,0 +1,57 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Maya Mobile
+providerId: maya-mobile
+created: '2026-06-21'
+modified: '2026-06-21'
+reconciled: false
+tags:
+- eSIM
+- Connectivity
+- Mobile Data
+- Roaming
+- Telecom
+- Rate Limiting
+- Quotas
+- Throttling
+description: >-
+  Maya Mobile does not publicly publish rate-limit values for the Connect+
+  Connectivity API. As a partner/reseller REST API issued under onboarding,
+  per-account request throttling and quotas are expected but their exact values
+  (RPM/RPS, daily caps, concurrency) are confirmed in the NDA-gated partner
+  documentation. This artifact is not reconciled.
+notes: >-
+  Verify request throttling, concurrency limits, and any provisioning quotas with
+  Maya Mobile during onboarding/reconciliation. Note that data-plan traffic
+  policies (fixed-limit, throttled, unlimited) are package-level connectivity
+  controls, not API request rate limits.
+sources:
+- https://maya.net/business/esim-api
+- https://api.maya.net/business/esim-reseller
+responseCodes:
+  throttled: 429
+limits:
+- name: Requests Per Minute (RPM)
+  scope: account
+  metric: requests
+  limit: see partner documentation
+  notes: Not publicly documented; confirm during onboarding.
+- name: Concurrent Requests
+  scope: account
+  metric: requests
+  limit: see partner documentation
+  notes: Not publicly documented; confirm during onboarding.
+- name: Provisioning Quota
+  scope: account
+  metric: esims
+  limit: see partner documentation
+  notes: Any cap on eSIM provisioning volume is account/contract specific.
+policies:
+- name: Backoff Strategy
+  description: Clients should implement exponential backoff with jitter and honor Retry-After on HTTP 429 responses.
+- name: Webhook Delivery
+  description: Lifecycle and usage events are delivered to partner callback URLs; consumers should acknowledge promptly and tolerate retries.
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com
