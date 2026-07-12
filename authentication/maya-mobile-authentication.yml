@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/maya-mobile-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'Bearer token / API key supplied in the Authorization header (`Authorization:
+    Bearer <token>`). Credentials are issued to onboarded Maya Mobile resellers/partners.'
+  sources:
+  - openapi/maya-mobile-openapi.yml

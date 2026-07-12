@@ -123,6 +123,10 @@ apis:
     (installation, activation, low-balance, and usage updates) and can trigger SMS
     notifications to user devices for key lifecycle events.
 common:
+- type: DomainSecurity
+  url: security/maya-mobile-domain-security.yml
+- type: Authentication
+  url: authentication/maya-mobile-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/mayamobile-us
 - type: Website
