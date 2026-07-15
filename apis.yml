@@ -123,6 +123,8 @@ apis:
     (installation, activation, low-balance, and usage updates) and can trigger SMS
     notifications to user devices for key lifecycle events.
 common:
+- type: AgenticAccess
+  url: agentic-access/maya-mobile-agentic-access.yml
 - type: DomainSecurity
   url: security/maya-mobile-domain-security.yml
 - type: Authentication
