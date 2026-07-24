@@ -1,0 +1,64 @@
+openapi: 3.0.1
+info:
+  title: Maya Mobile Connect+ Connectivity eSIMs Usage API
+  description: 'Maya Mobile (Mobile Maya Inc) Connect+ Connectivity REST API for provisioning eSIMs and data packages, monitoring activation status and data usage, processing top-ups, and receiving lifecycle events via webhooks across 400+ roaming networks in 200+ destinations.
+
+
+    NOTE: Maya Mobile distributes the full Connectivity API reference under NDA to onboarded resellers and partners. This document models the publicly described capabilities of the Connect+ API (eSIM provisioning, data packages/plans, status and usage, top-ups, orders, and webhooks). Exact endpoint paths, request/response schemas, and authentication parameters are confirmed against the partner documentation during onboarding and are not fully published. Paths below reflect the documented capability surface and are marked as unreconciled where exact shapes are not public.'
+  termsOfService: https://maya.net/terms
+  contact:
+    name: Maya Mobile Partnerships
+    url: https://maya.net/business
+  version: '1.0'
+servers:
+- url: https://api.maya.net/connectivity/v1
+  description: Connect+ Connectivity API base URL (representative; confirm exact host and version path against partner documentation during onboarding).
+security:
+- bearerAuth: []
+tags:
+- name: Usage
+  description: Real-time eSIM status and data-usage reporting.
+paths:
+  /esims/{esimId}/usage:
+    get:
+      operationId: getEsimUsage
+      tags:
+      - Usage
+      summary: Get eSIM data usage
+      description: Returns real-time data-usage and installation status for an eSIM.
+      parameters:
+      - name: esimId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Usage and status for the eSIM.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Usage'
+components:
+  schemas:
+    Usage:
+      type: object
+      properties:
+        esim_id:
+          type: string
+        status:
+          type: string
+        data_used:
+          type: number
+          description: Data consumed.
+        data_remaining:
+          type: number
+          description: Data remaining where the policy is metered.
+        unit:
+          type: string
+          description: Unit for the usage values (e.g. MB).
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer token / API key supplied in the Authorization header (`Authorization: Bearer <token>`). Credentials are issued to onboarded Maya Mobile resellers/partners.'

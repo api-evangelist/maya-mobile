@@ -1,0 +1,79 @@
+openapi: 3.0.1
+info:
+  title: Maya Mobile Connect+ Connectivity eSIMs Plans API
+  description: 'Maya Mobile (Mobile Maya Inc) Connect+ Connectivity REST API for provisioning eSIMs and data packages, monitoring activation status and data usage, processing top-ups, and receiving lifecycle events via webhooks across 400+ roaming networks in 200+ destinations.
+
+
+    NOTE: Maya Mobile distributes the full Connectivity API reference under NDA to onboarded resellers and partners. This document models the publicly described capabilities of the Connect+ API (eSIM provisioning, data packages/plans, status and usage, top-ups, orders, and webhooks). Exact endpoint paths, request/response schemas, and authentication parameters are confirmed against the partner documentation during onboarding and are not fully published. Paths below reflect the documented capability surface and are marked as unreconciled where exact shapes are not public.'
+  termsOfService: https://maya.net/terms
+  contact:
+    name: Maya Mobile Partnerships
+    url: https://maya.net/business
+  version: '1.0'
+servers:
+- url: https://api.maya.net/connectivity/v1
+  description: Connect+ Connectivity API base URL (representative; confirm exact host and version path against partner documentation during onboarding).
+security:
+- bearerAuth: []
+tags:
+- name: Plans
+  description: Pre-made data plans and the catalog of countries, regions, and networks.
+paths:
+  /plans:
+    get:
+      operationId: listPlans
+      tags:
+      - Plans
+      summary: List available data plans and products
+      description: Returns the catalog of pre-made data plans and the countries, regions, and roaming networks available for building eSIM data packages.
+      parameters:
+      - name: country
+        in: query
+        required: false
+        schema:
+          type: string
+        description: ISO country code to filter the available plans/packages.
+      - name: region
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Region identifier to filter the available plans/packages.
+      responses:
+        '200':
+          description: A list of available plans/products.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Plan'
+components:
+  schemas:
+    Plan:
+      type: object
+      description: A pre-made data plan or data-package template.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          description: Traffic policy, e.g. fixed-limit, time-limited, unlimited, or throttled.
+        data_amount:
+          type: string
+          description: Included data allowance (e.g. in MB/GB) where applicable.
+        validity_days:
+          type: integer
+          description: Validity period in days where applicable.
+        countries:
+          type: array
+          items:
+            type: string
+          description: ISO country codes covered by the plan.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Bearer token / API key supplied in the Authorization header (`Authorization: Bearer <token>`). Credentials are issued to onboarded Maya Mobile resellers/partners.'
