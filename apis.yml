@@ -7,7 +7,20 @@ description: Maya Mobile (Mobile Maya Inc) is a US-based global eSIM and connect
   Connectivity REST API lets resellers and developers provision eSIMs, assign data
   packages, monitor activation status and data usage, suspend or reactivate lines,
   process top-ups, and receive lifecycle events via webhooks.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/maya-mobile.png
 tags:
 - eSIM
 - Connectivity
@@ -18,110 +31,70 @@ created: '2026-06-21'
 modified: '2026-06-21'
 specificationVersion: '0.19'
 apis:
-- aid: maya-mobile:plans-products
-  name: Maya Mobile Plans and Products API
-  tags:
-  - Plans
-  - Products
-  - Data Packages
-  - Catalog
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+- aid: maya-mobile:maya-mobile-esims-api
+  name: Maya Mobile eSIMs API
+  description: eSIM provisioning, activation codes/QR, suspend and reactivate.
   humanURL: https://maya.net/business/esim-api
   baseURL: https://api.maya.net/connectivity/v1
-  properties:
-  - url: https://maya.net/business/esim-api
-    type: Documentation
-  - url: openapi/maya-mobile-openapi.yml
-    type: OpenAPI
-  - url: collections/maya-mobile.postman_collection.json
-    type: PostmanCollection
-  - url: collections/maya-mobile.opencollection.json
-    type: OpenCollection
-  description: Lists pre-made data plans and the catalog of countries, regions, and
-    roaming networks available for building eSIM data packages, plus support for
-    custom package templates (fixed-limit, time-limited, unlimited, or throttled
-    traffic policies).
-- aid: maya-mobile:esims-provisioning
-  name: Maya Mobile eSIMs and Provisioning API
   tags:
   - eSIMs
-  - Provisioning
-  - Activation
-  - QR Code
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://maya.net/business/esim-api
-  baseURL: https://api.maya.net/connectivity/v1
   properties:
-  - url: https://maya.net/business/esim-api
-    type: Documentation
-  - url: openapi/maya-mobile-openapi.yml
-    type: OpenAPI
-  - url: collections/maya-mobile.postman_collection.json
-    type: PostmanCollection
-  - url: collections/maya-mobile.opencollection.json
-    type: OpenCollection
-  description: Requests an eSIM with a selected roaming profile and returns the
-    activation code and QR code ready to install, and lets you suspend or reactivate
-    an eSIM anywhere in the world.
-- aid: maya-mobile:usage-topup
-  name: Maya Mobile Usage and Topup API
-  tags:
-  - Usage
-  - Status
-  - Topup
-  - Reporting
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-  humanURL: https://maya.net/business/esim-api
-  baseURL: https://api.maya.net/connectivity/v1
-  properties:
-  - url: https://maya.net/business/esim-api
-    type: Documentation
-  - url: openapi/maya-mobile-openapi.yml
-    type: OpenAPI
-  - url: collections/maya-mobile.postman_collection.json
-    type: PostmanCollection
-  - url: collections/maya-mobile.opencollection.json
-    type: OpenCollection
-  description: Returns real-time eSIM installation status and data-usage reporting,
-    and adds (tops up) more data to an existing eSIM via additional data packages.
-- aid: maya-mobile:orders
+  - type: OpenAPI
+    url: openapi/maya-mobile-esims-api-openapi.yml
+  - type: Documentation
+    url: https://maya.net/business/esim-api
+  - type: PostmanCollection
+    url: collections/maya-mobile.postman_collection.json
+  - type: OpenCollection
+    url: collections/maya-mobile.opencollection.json
+- aid: maya-mobile:maya-mobile-orders-api
   name: Maya Mobile Orders API
+  description: Placing and assigning data-package orders, including top-ups.
+  humanURL: https://maya.net/business/esim-api
+  baseURL: https://api.maya.net/connectivity/v1
   tags:
   - Orders
-  - Data Packages
-  - Fulfillment
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  properties:
+  - type: OpenAPI
+    url: openapi/maya-mobile-orders-api-openapi.yml
+  - type: Documentation
+    url: https://maya.net/business/esim-api
+  - type: PostmanCollection
+    url: collections/maya-mobile.postman_collection.json
+  - type: OpenCollection
+    url: collections/maya-mobile.opencollection.json
+- aid: maya-mobile:maya-mobile-plans-api
+  name: Maya Mobile Plans API
+  description: Pre-made data plans and the catalog of countries, regions, and networks.
   humanURL: https://maya.net/business/esim-api
   baseURL: https://api.maya.net/connectivity/v1
-  properties:
-  - url: https://maya.net/business/esim-api
-    type: Documentation
-  - url: openapi/maya-mobile-openapi.yml
-    type: OpenAPI
-  - url: collections/maya-mobile.postman_collection.json
-    type: PostmanCollection
-  - url: collections/maya-mobile.opencollection.json
-    type: OpenCollection
-  description: Places and assigns data-package orders against eSIMs for specific
-    countries, regions, and networks, supporting one or multiple packages per eSIM.
-- aid: maya-mobile:webhooks
-  name: Maya Mobile Webhooks
   tags:
-  - Webhooks
-  - Callbacks
-  - Events
-  - SMS Notifications
-  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  - Plans
+  properties:
+  - type: OpenAPI
+    url: openapi/maya-mobile-plans-api-openapi.yml
+  - type: Documentation
+    url: https://maya.net/business/esim-api
+  - type: PostmanCollection
+    url: collections/maya-mobile.postman_collection.json
+  - type: OpenCollection
+    url: collections/maya-mobile.opencollection.json
+- aid: maya-mobile:maya-mobile-usage-api
+  name: Maya Mobile Usage API
+  description: Real-time eSIM status and data-usage reporting.
   humanURL: https://maya.net/business/esim-api
   baseURL: https://api.maya.net/connectivity/v1
+  tags:
+  - Usage
   properties:
-  - url: https://maya.net/business/esim-api
-    type: Documentation
-  - url: openapi/maya-mobile-openapi.yml
-    type: OpenAPI
-  description: Pushes eSIM lifecycle and data-usage events to a partner callback URL
-    (installation, activation, low-balance, and usage updates) and can trigger SMS
-    notifications to user devices for key lifecycle events.
+  - type: OpenAPI
+    url: openapi/maya-mobile-usage-api-openapi.yml
+  - type: Documentation
+    url: https://maya.net/business/esim-api
+  - type: PostmanCollection
+    url: collections/maya-mobile.postman_collection.json
+  - type: OpenCollection
+    url: collections/maya-mobile.opencollection.json
 common:
 - type: AgenticAccess
   url: agentic-access/maya-mobile-agentic-access.yml
