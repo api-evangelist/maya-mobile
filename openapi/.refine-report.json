@@ -1,0 +1,20 @@
+{
+  "provider": "maya-mobile",
+  "sources": [
+    "maya-mobile-esims-api-openapi.yml",
+    "maya-mobile-orders-api-openapi.yml",
+    "maya-mobile-plans-api-openapi.yml",
+    "maya-mobile-usage-api-openapi.yml"
+  ],
+  "outputs": [
+    "maya-mobile-esims-api-openapi.yml",
+    "maya-mobile-orders-api-openapi.yml",
+    "maya-mobile-plans-api-openapi.yml",
+    "maya-mobile-usage-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
