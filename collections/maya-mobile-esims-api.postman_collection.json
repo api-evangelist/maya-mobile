@@ -1,0 +1,432 @@
+{
+  "item": [
+    {
+      "id": "6d3c8ad1-ab8f-4b43-bb32-0ad5739cea64",
+      "name": "eSIMs",
+      "description": {
+        "content": "eSIM provisioning, activation codes/QR, suspend and reactivate.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b47fee6-a1d5-47e6-a92d-be2e2f8c2a32",
+          "name": "Provision a new eSIM",
+          "request": {
+            "name": "Provision a new eSIM",
+            "description": {
+              "content": "Requests an eSIM with the selected roaming profile and returns the activation code and QR code ready to install.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "esims"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plan_id\": \"<string>\",\n  \"region\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8a4b7156-6af7-42b4-893a-5cc269e5070b",
+              "name": "The provisioned eSIM with activation details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "esims"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plan_id\": \"<string>\",\n  \"region\": \"<string>\",\n  \"country\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"iccid\": \"string\",\n  \"status\": \"string\",\n  \"activation_code\": \"string\",\n  \"qr_code_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3889b77-5967-44c5-8f7c-f7354018cd78",
+          "name": "Get an eSIM",
+          "request": {
+            "name": "Get an eSIM",
+            "description": {
+              "content": "Returns the current state and installation status of a single eSIM.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "esims",
+                ":esimId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "esimId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1091075-73ef-43e8-84f1-5d538067ce98",
+              "name": "The requested eSIM.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "esims",
+                    ":esimId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "esimId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"iccid\": \"string\",\n  \"status\": \"string\",\n  \"activation_code\": \"string\",\n  \"qr_code_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "407a3b6f-1719-4390-bf70-ef1161c9f1a7",
+          "name": "Suspend an eSIM",
+          "request": {
+            "name": "Suspend an eSIM",
+            "description": {
+              "content": "Suspends an active eSIM anywhere in the world.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "esims",
+                ":esimId",
+                "suspend"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "esimId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1daf5daf-21d7-4f66-afdb-c012d5be454f",
+              "name": "The eSIM after suspension.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "esims",
+                    ":esimId",
+                    "suspend"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "esimId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"iccid\": \"string\",\n  \"status\": \"string\",\n  \"activation_code\": \"string\",\n  \"qr_code_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "61c7e0e8-9168-4690-b159-f413138eb8cb",
+          "name": "Reactivate an eSIM",
+          "request": {
+            "name": "Reactivate an eSIM",
+            "description": {
+              "content": "Reactivates a previously suspended eSIM.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "esims",
+                ":esimId",
+                "reactivate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "esimId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bea8091f-8f2e-4d1b-afff-ba7e566c6845",
+              "name": "The eSIM after reactivation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "esims",
+                    ":esimId",
+                    "reactivate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "esimId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"iccid\": \"string\",\n  \"status\": \"string\",\n  \"activation_code\": \"string\",\n  \"qr_code_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maya.net/connectivity/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5f3ecee3-c2ae-42de-a24f-311b58d89c98",
+    "name": "Maya Mobile Connect+ Connectivity eSIMs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Maya Mobile (Mobile Maya Inc) Connect+ Connectivity REST API for provisioning eSIMs and data packages, monitoring activation status and data usage, processing top-ups, and receiving lifecycle events via webhooks across 400+ roaming networks in 200+ destinations.\n\nNOTE: Maya Mobile distributes the full Connectivity API reference under NDA to onboarded resellers and partners. This document models the publicly described capabilities of the Connect+ API (eSIM provisioning, data packages/plans, status and usage, top-ups, orders, and webhooks). Exact endpoint paths, request/response schemas, and authentication parameters are confirmed against the partner documentation during onboarding and are not fully published. Paths below reflect the documented capability surface and are marked as unreconciled where exact shapes are not public.\n\nContact Support:\n Name: Maya Mobile Partnerships",
+      "type": "text/plain"
+    }
+  }
+}

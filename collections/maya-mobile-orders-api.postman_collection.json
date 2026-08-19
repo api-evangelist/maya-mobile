@@ -1,0 +1,337 @@
+{
+  "item": [
+    {
+      "id": "7ac28e32-f121-4e6a-9cef-24a31825419c",
+      "name": "Orders",
+      "description": {
+        "content": "Placing and assigning data-package orders, including top-ups.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ed56a7cf-be81-4c81-8d90-9701b424e3cc",
+          "name": "Top up an eSIM",
+          "request": {
+            "name": "Top up an eSIM",
+            "description": {
+              "content": "Adds (tops up) an additional data package to an existing eSIM for the specified country, region, or network.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "esims",
+                ":esimId",
+                "topup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "esimId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plan_id\": \"<string>\",\n  \"country\": \"<string>\",\n  \"region\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7de07ed7-b25d-4f56-a50a-87d42875e1de",
+              "name": "The resulting order/top-up.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "esims",
+                    ":esimId",
+                    "topup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "esimId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plan_id\": \"<string>\",\n  \"country\": \"<string>\",\n  \"region\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"esim_id\": \"string\",\n  \"status\": \"string\",\n  \"items\": [\n    {\n      \"plan_id\": \"string\",\n      \"quantity\": 5570\n    },\n    {\n      \"plan_id\": \"string\",\n      \"quantity\": 8162\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c4587914-f123-4b88-bd72-23bdfa17d289",
+          "name": "Create a data-package order",
+          "request": {
+            "name": "Create a data-package order",
+            "description": {
+              "content": "Places a data-package order and assigns it to an eSIM for specific countries, regions, and networks. Supports one or multiple packages.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"plan_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"plan_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"esim_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4e4a78fb-961a-4c64-92ed-cb3f3697bc7b",
+              "name": "The created order.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"plan_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    },\n    {\n      \"plan_id\": \"<string>\",\n      \"quantity\": \"<integer>\"\n    }\n  ],\n  \"esim_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"esim_id\": \"string\",\n  \"status\": \"string\",\n  \"items\": [\n    {\n      \"plan_id\": \"string\",\n      \"quantity\": 2372\n    },\n    {\n      \"plan_id\": \"string\",\n      \"quantity\": 6912\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "99dc78ac-b453-4f75-a220-2731f88d6602",
+          "name": "List orders",
+          "request": {
+            "name": "List orders",
+            "description": {
+              "content": "Lists previously placed data-package orders.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49bd68d6-0a59-4f4f-b175-77c37cd4f251",
+              "name": "A list of orders.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"esim_id\": \"string\",\n    \"status\": \"string\",\n    \"items\": [\n      {\n        \"plan_id\": \"string\",\n        \"quantity\": 2572\n      },\n      {\n        \"plan_id\": \"string\",\n        \"quantity\": 7715\n      }\n    ]\n  },\n  {\n    \"id\": \"string\",\n    \"esim_id\": \"string\",\n    \"status\": \"string\",\n    \"items\": [\n      {\n        \"plan_id\": \"string\",\n        \"quantity\": 1991\n      },\n      {\n        \"plan_id\": \"string\",\n        \"quantity\": 9029\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.maya.net/connectivity/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b39072f4-dde1-4955-9332-868670fde058",
+    "name": "Maya Mobile Connect+ Connectivity eSIMs Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Maya Mobile (Mobile Maya Inc) Connect+ Connectivity REST API for provisioning eSIMs and data packages, monitoring activation status and data usage, processing top-ups, and receiving lifecycle events via webhooks across 400+ roaming networks in 200+ destinations.\n\nNOTE: Maya Mobile distributes the full Connectivity API reference under NDA to onboarded resellers and partners. This document models the publicly described capabilities of the Connect+ API (eSIM provisioning, data packages/plans, status and usage, top-ups, orders, and webhooks). Exact endpoint paths, request/response schemas, and authentication parameters are confirmed against the partner documentation during onboarding and are not fully published. Paths below reflect the documented capability surface and are marked as unreconciled where exact shapes are not public.\n\nContact Support:\n Name: Maya Mobile Partnerships",
+      "type": "text/plain"
+    }
+  }
+}

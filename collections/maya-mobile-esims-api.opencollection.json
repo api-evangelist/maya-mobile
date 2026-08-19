@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maya Mobile Connect+ Connectivity eSIMs API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "eSIMs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Provision a new eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/esims",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Requests an eSIM with the selected roaming profile and returns the activation code and QR code ready to install."
+        },
+        {
+          "info": {
+            "name": "Get an eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maya.net/connectivity/v1/esims/:esimId",
+            "params": [
+              {
+                "name": "esimId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns the current state and installation status of a single eSIM."
+        },
+        {
+          "info": {
+            "name": "Suspend an eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/esims/:esimId/suspend",
+            "params": [
+              {
+                "name": "esimId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Suspends an active eSIM anywhere in the world."
+        },
+        {
+          "info": {
+            "name": "Reactivate an eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/esims/:esimId/reactivate",
+            "params": [
+              {
+                "name": "esimId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Reactivates a previously suspended eSIM."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

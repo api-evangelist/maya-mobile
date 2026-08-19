@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maya Mobile Connect+ Connectivity eSIMs Plans API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Plans",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List available data plans and products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maya.net/connectivity/v1/plans",
+            "params": [
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "ISO country code to filter the available plans/packages."
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "Region identifier to filter the available plans/packages."
+              }
+            ]
+          },
+          "docs": "Returns the catalog of pre-made data plans and the countries, regions, and roaming networks available for building eSIM data packages."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

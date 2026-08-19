@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Maya Mobile Connect+ Connectivity eSIMs Orders API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Top up an eSIM",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/esims/:esimId/topup",
+            "params": [
+              {
+                "name": "esimId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds (tops up) an additional data package to an existing eSIM for the specified country, region, or network."
+        },
+        {
+          "info": {
+            "name": "List orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.maya.net/connectivity/v1/orders"
+          },
+          "docs": "Lists previously placed data-package orders."
+        },
+        {
+          "info": {
+            "name": "Create a data-package order",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.maya.net/connectivity/v1/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Places a data-package order and assigns it to an eSIM for specific countries, regions, and networks. Supports one or multiple packages."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
