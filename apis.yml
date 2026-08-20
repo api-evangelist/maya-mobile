@@ -37,6 +37,8 @@ apis:
   humanURL: https://maya.net/business/esim-api
   baseURL: https://api.maya.net/connectivity/v1
   tags:
+  - eSIM
+  tags_raw:
   - eSIMs
   properties:
   - type: OpenAPI
@@ -53,6 +55,8 @@ apis:
   humanURL: https://maya.net/business/esim-api
   baseURL: https://api.maya.net/connectivity/v1
   tags:
+  - Order
+  tags_raw:
   - Orders
   properties:
   - type: OpenAPI
