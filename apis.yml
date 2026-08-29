@@ -7,6 +7,18 @@ description: Maya Mobile (Mobile Maya Inc) is a US-based global eSIM and connect
   Connectivity REST API lets resellers and developers provision eSIMs, assign data
   packages, monitor activation status and data usage, suspend or reactivate lines,
   process top-ups, and receive lifecycle events via webhooks.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
