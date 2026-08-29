@@ -1,0 +1,35 @@
+slug: maya-mobile
+provider: Maya Mobile
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: eSIMs
+  spec_file: maya-mobile-esims-api-openapi.yml
+  capability_id: BC-2640.20
+  capability_id_l1: BC-2640
+  capability_name: SIM & eSIM Lifecycle Management
+  confidence: 0.92
+  evidence: POST /esims createEsim 'Provision a new eSIM'; POST /esims/{esimId}/suspend 'Suspend an eSIM';
+    POST /esims/{esimId}/reactivate 'Reactivate an eSIM'
+  reason: Operations directly perform eSIM profile provisioning, suspension and reactivation — the lifecycle
+    of eSIM profiles — which is exactly SIM & eSIM Lifecycle Management.
+- tag: Plans
+  spec_file: maya-mobile-plans-api-openapi.yml
+  capability_id: BC-2650
+  capability_id_l1: BC-2650
+  capability_name: Telecom Product Catalogue Management
+  confidence: 0.7
+  evidence: GET /plans listPlans 'List available data plans and products'
+  reason: Exposes the catalogue of purchasable connectivity data plans/products to resellers, which is
+    telecom product catalogue territory. Left at L1 because a single read-only listing operation does
+    not distinguish tariff/plan definition (BC-2650.20) from catalogue publication to channels (BC-2650.40).

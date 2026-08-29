@@ -112,6 +112,9 @@ apis:
   - type: OpenCollection
     url: collections/maya-mobile.opencollection.json
 common:
+- type: CapabilityMap
+  url: capabilities/maya-mobile-capability-edges.yml
+  name: Maya Mobile Business Capability Map
 - type: AgenticAccess
   url: agentic-access/maya-mobile-agentic-access.yml
 - type: DomainSecurity
