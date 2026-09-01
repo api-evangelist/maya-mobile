@@ -49,7 +49,7 @@ apis:
   humanURL: https://maya.net/business/esim-api
   baseURL: https://api.maya.net/connectivity/v1
   tags:
-  - eSIMs
+  - eSIM
   tags_raw:
   - eSIMs
   properties:
