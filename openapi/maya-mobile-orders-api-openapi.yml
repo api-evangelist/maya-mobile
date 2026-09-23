@@ -1,10 +1,7 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Maya Mobile Connect+ Connectivity eSIMs Orders API
-  description: 'Maya Mobile (Mobile Maya Inc) Connect+ Connectivity REST API for provisioning eSIMs and data packages, monitoring activation status and data usage, processing top-ups, and receiving lifecycle events via webhooks across 400+ roaming networks in 200+ destinations.
-
-
-    NOTE: Maya Mobile distributes the full Connectivity API reference under NDA to onboarded resellers and partners. This document models the publicly described capabilities of the Connect+ API (eSIM provisioning, data packages/plans, status and usage, top-ups, orders, and webhooks). Exact endpoint paths, request/response schemas, and authentication parameters are confirmed against the partner documentation during onboarding and are not fully published. Paths below reflect the documented capability surface and are marked as unreconciled where exact shapes are not public.'
+  title: Maya Mobile Connect+ Connectivity Orders API
+  description: Maya Mobile (Mobile Maya Inc) Connect+ Connectivity REST API for provisioning eSIMs and data packages, monitoring activation status and data usage, processing top-ups, and receiving lifecycle events via webhooks across 400+ roaming networks in 200+ destinations.
   termsOfService: https://maya.net/terms
   contact:
     name: Maya Mobile Partnerships
