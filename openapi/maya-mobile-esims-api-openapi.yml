@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Maya Mobile Connect+ Connectivity E SI Ms API
+  title: Maya Mobile Connect+ Connectivity E SIMs API
   description: Maya Mobile (Mobile Maya Inc) Connect+ Connectivity REST API for provisioning eSIMs and data packages, monitoring activation status and data usage, processing top-ups, and receiving lifecycle events via webhooks across 400+ roaming networks in 200+ destinations.
   termsOfService: https://maya.net/terms
   contact:

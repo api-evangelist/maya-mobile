@@ -79,24 +79,6 @@ paths:
                   $ref: '#/components/schemas/Order'
 components:
   schemas:
-    Order:
-      type: object
-      properties:
-        id:
-          type: string
-        esim_id:
-          type: string
-        status:
-          type: string
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              plan_id:
-                type: string
-              quantity:
-                type: integer
     CreateOrderRequest:
       type: object
       properties:
@@ -125,6 +107,24 @@ components:
           type: string
       required:
       - plan_id
+    Order:
+      type: object
+      properties:
+        id:
+          type: string
+        esim_id:
+          type: string
+        status:
+          type: string
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              plan_id:
+                type: string
+              quantity:
+                type: integer
   securitySchemes:
     bearerAuth:
       type: http
