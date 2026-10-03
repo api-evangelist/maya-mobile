@@ -98,18 +98,6 @@ paths:
                 $ref: '#/components/schemas/Esim'
 components:
   schemas:
-    CreateEsimRequest:
-      type: object
-      properties:
-        plan_id:
-          type: string
-          description: Identifier of the plan/roaming profile to provision.
-        region:
-          type: string
-        country:
-          type: string
-      required:
-      - plan_id
     Esim:
       type: object
       properties:
@@ -126,6 +114,18 @@ components:
         qr_code_url:
           type: string
           description: URL of the QR code used to install the eSIM.
+    CreateEsimRequest:
+      type: object
+      properties:
+        plan_id:
+          type: string
+          description: Identifier of the plan/roaming profile to provision.
+        region:
+          type: string
+        country:
+          type: string
+      required:
+      - plan_id
   securitySchemes:
     bearerAuth:
       type: http

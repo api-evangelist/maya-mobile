@@ -79,34 +79,6 @@ paths:
                   $ref: '#/components/schemas/Order'
 components:
   schemas:
-    CreateOrderRequest:
-      type: object
-      properties:
-        esim_id:
-          type: string
-          description: Target eSIM to assign the package(s) to.
-        items:
-          type: array
-          items:
-            type: object
-            properties:
-              plan_id:
-                type: string
-              quantity:
-                type: integer
-      required:
-      - items
-    TopupRequest:
-      type: object
-      properties:
-        plan_id:
-          type: string
-        country:
-          type: string
-        region:
-          type: string
-      required:
-      - plan_id
     Order:
       type: object
       properties:
@@ -125,6 +97,34 @@ components:
                 type: string
               quantity:
                 type: integer
+    TopupRequest:
+      type: object
+      properties:
+        plan_id:
+          type: string
+        country:
+          type: string
+        region:
+          type: string
+      required:
+      - plan_id
+    CreateOrderRequest:
+      type: object
+      properties:
+        esim_id:
+          type: string
+          description: Target eSIM to assign the package(s) to.
+        items:
+          type: array
+          items:
+            type: object
+            properties:
+              plan_id:
+                type: string
+              quantity:
+                type: integer
+      required:
+      - items
   securitySchemes:
     bearerAuth:
       type: http
