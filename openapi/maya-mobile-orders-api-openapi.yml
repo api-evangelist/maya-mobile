@@ -79,6 +79,17 @@ paths:
                   $ref: '#/components/schemas/Order'
 components:
   schemas:
+    TopupRequest:
+      type: object
+      properties:
+        plan_id:
+          type: string
+        country:
+          type: string
+        region:
+          type: string
+      required:
+      - plan_id
     Order:
       type: object
       properties:
