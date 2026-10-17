@@ -79,17 +79,6 @@ paths:
                   $ref: '#/components/schemas/Order'
 components:
   schemas:
-    TopupRequest:
-      type: object
-      properties:
-        plan_id:
-          type: string
-        country:
-          type: string
-        region:
-          type: string
-      required:
-      - plan_id
     Order:
       type: object
       properties:
@@ -108,17 +97,6 @@ components:
                 type: string
               quantity:
                 type: integer
-    TopupRequest:
-      type: object
-      properties:
-        plan_id:
-          type: string
-        country:
-          type: string
-        region:
-          type: string
-      required:
-      - plan_id
     CreateOrderRequest:
       type: object
       properties:
@@ -136,6 +114,17 @@ components:
                 type: integer
       required:
       - items
+    TopupRequest:
+      type: object
+      properties:
+        plan_id:
+          type: string
+        country:
+          type: string
+        region:
+          type: string
+      required:
+      - plan_id
   securitySchemes:
     bearerAuth:
       type: http
