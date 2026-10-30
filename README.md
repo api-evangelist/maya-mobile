@@ -1,4 +1,4 @@
-# Maya Mobile (maya-mobile)
+# Maya Mobile
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,137 +66,120 @@
 
 Maya Mobile (Mobile Maya Inc) is a US-based global eSIM and connectivity platform aggregating 400+ roaming networks across 200+ destinations. Its Connect+ Connectivity REST API lets resellers and developers provision eSIMs, assign data packages, monitor activation status and data usage, suspend or reactivate lines, process top-ups, and receive lifecycle events via webhooks.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/maya-mobile/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/maya-mobile/refs/heads/main/apis.yml)
+**Areas:** eSIM · Connectivity · Mobile Data · Roaming · Telecommunications
 
-> Note: Maya Mobile distributes the full Connect+ Connectivity API reference to onboarded resellers and partners under NDA. The catalog below models the publicly described REST capability surface (eSIM provisioning, data packages/plans, status and usage, top-ups, orders, and webhooks). Exact endpoint paths and schemas are confirmed during onboarding; unreconciled artifacts are marked `reconciled: false`.
+## Maya Mobile on APIs.io
 
-## Tags
+Everything profiled for Maya Mobile is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/maya-mobile/](https://apis.io/providers/maya-mobile/)** — or go straight to one of the APIs or properties below.
 
-- eSIM
-- Connectivity
-- Mobile Data
-- Roaming
-- Telecom
+### APIs (4)
 
-## Timestamps
+- [Maya Mobile eSIMs API](https://apis.io/apis/maya-mobile/maya-mobile-esims-api/) — eSIM provisioning, activation codes/QR, suspend and reactivate.
+- [Maya Mobile Orders API](https://apis.io/apis/maya-mobile/maya-mobile-orders-api/) — Placing and assigning data-package orders, including top-ups.
+- [Maya Mobile Plans API](https://apis.io/apis/maya-mobile/maya-mobile-plans-api/) — Pre-made data plans and the catalog of countries, regions, and networks.
+- [Maya Mobile Usage API](https://apis.io/apis/maya-mobile/maya-mobile-usage-api/) — Real-time eSIM status and data-usage reporting.
 
-- **Created:** 2026-06-21
-- **Modified:** 2026-06-21
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Maya Mobile Plans and Products API
+#### Agentic access (1)
 
-Lists pre-made data plans and the catalog of countries, regions, and roaming networks available for building eSIM data packages, plus support for custom package templates (fixed-limit, time-limited, unlimited, or throttled traffic policies).
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- **Human URL:** [https://maya.net/business/esim-api](https://maya.net/business/esim-api)
-- **Base URL:** `https://api.maya.net/connectivity/v1`
+- [Maya Mobile Agentic Access](https://apis.io/agentic-access/maya-mobile/maya-mobile-agentic-access/)
 
-#### Tags
+#### Collections (5)
 
-- Plans
-- Products
-- Data Packages
-- Catalog
+Postman and Open Collection request collections.
 
-#### Properties
+- [Maya Mobile Connect+ Connectivity API](https://apis.io/collections/maya-mobile/open-maya-mobile/)
+- [Maya Mobile Connect+ Connectivity eSIMs API](https://apis.io/collections/maya-mobile/open-maya-mobile-esims-api/)
+- [Maya Mobile Connect+ Connectivity eSIMs Orders API](https://apis.io/collections/maya-mobile/open-maya-mobile-orders-api/)
+- [Maya Mobile Connect+ Connectivity eSIMs Plans API](https://apis.io/collections/maya-mobile/open-maya-mobile-plans-api/)
+- [Maya Mobile Connect+ Connectivity eSIMs Usage API](https://apis.io/collections/maya-mobile/open-maya-mobile-usage-api/)
 
-- [Documentation](https://maya.net/business/esim-api)
-- [OpenAPI](openapi/maya-mobile-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maya-mobile.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maya-mobile.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Security (2)
 
-### Maya Mobile eSIMs and Provisioning API
+Authentication, trust centre, and vulnerability disclosure.
 
-Requests an eSIM with a selected roaming profile and returns the activation code and QR code ready to install, and lets you suspend or reactivate an eSIM anywhere in the world.
+- [Maya Mobile Authentication](https://apis.io/security/maya-mobile/maya-mobile-authentication/)
+- [Maya Mobile Domain Security](https://apis.io/security/maya-mobile/maya-mobile-domain-security/)
 
-- **Human URL:** [https://maya.net/business/esim-api](https://maya.net/business/esim-api)
-- **Base URL:** `https://api.maya.net/connectivity/v1`
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- eSIMs
-- Provisioning
-- Activation
-- QR Code
+- [Maya Mobile Plans Pricing](https://apis.io/plans/maya-mobile/maya-mobile-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [Documentation](https://maya.net/business/esim-api)
-- [OpenAPI](openapi/maya-mobile-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maya-mobile.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maya-mobile.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-### Maya Mobile Usage and Topup API
+- [Maya Mobile Rate Limits](https://apis.io/rate-limits/maya-mobile/maya-mobile-rate-limits/)
 
-Returns real-time eSIM installation status and data-usage reporting, and adds (tops up) more data to an existing eSIM via additional data packages.
+#### FinOps (1)
 
-- **Human URL:** [https://maya.net/business/esim-api](https://maya.net/business/esim-api)
-- **Base URL:** `https://api.maya.net/connectivity/v1`
+What the API costs to run, by operation.
 
-#### Tags
+- [Maya Mobile Finops](https://apis.io/finops/maya-mobile/maya-mobile-finops/)
 
-- Usage
-- Status
-- Topup
-- Reporting
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://maya.net/business/esim-api)
-- [OpenAPI](openapi/maya-mobile-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maya-mobile.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maya-mobile.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maya Mobile Orders API
-
-Places and assigns data-package orders against eSIMs for specific countries, regions, and networks, supporting one or multiple packages per eSIM.
-
-- **Human URL:** [https://maya.net/business/esim-api](https://maya.net/business/esim-api)
-- **Base URL:** `https://api.maya.net/connectivity/v1`
-
-#### Tags
-
-- Orders
-- Data Packages
-- Fulfillment
-
-#### Properties
-
-- [Documentation](https://maya.net/business/esim-api)
-- [OpenAPI](openapi/maya-mobile-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/maya-mobile.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/maya-mobile.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Maya Mobile Webhooks
-
-Pushes eSIM lifecycle and data-usage events to a partner callback URL (installation, activation, low-balance, and usage updates) and can trigger SMS notifications to user devices for key lifecycle events.
-
-- **Human URL:** [https://maya.net/business/esim-api](https://maya.net/business/esim-api)
-- **Base URL:** `https://api.maya.net/connectivity/v1`
-
-#### Tags
-
-- Webhooks
-- Callbacks
-- Events
-- SMS Notifications
-
-#### Properties
-
-- [Documentation](https://maya.net/business/esim-api)
-- [OpenAPI](openapi/maya-mobile-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/mayamobile-us)
 - [Website](https://maya.net/)
 - [Documentation](https://maya.net/business/esim-api)
-- [Plans](plans/maya-mobile-plans-pricing.yml)
-- [Rate Limits](rate-limits/maya-mobile-rate-limits.yml)
-- [Fin Ops](finops/maya-mobile-finops.yml)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 21.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.8 |
+| Contract governance | 0.0 |
+| Operational transparency | 7.9 |
+| Developer ergonomics | 13.1 |
+| Access clarity | 5.3 |
+
+**Agent readiness 17.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.0** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/maya-mobile/](https://apis.io/providers/maya-mobile/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Maya Mobile: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/maya-mobile/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
